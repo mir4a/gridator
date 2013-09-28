@@ -135,12 +135,12 @@
 
 
 <div ng-controller="MyCtrl">
-  <div class="gridator" ng-controller="anglesController" >
+  <div class="gridator" ng-controller="anglesController">
     <div class="gridator_wrap" ng-style="setAngle">
-      <div ng-init="">
+      <div ng-init="" class="row_wrap">
         <div ng-repeat='row in rows' class="row">
           <div ng-repeat='cell in cells' class="columns large-1">
-            <div ng-style="MyStyle" ng-click="CellSel">{{row}} {{cell}}</div>
+            <div ng-style="MyStyle" ng-click="CellSel" class="cell_bg">{{row}} {{cell}}</div>
           </div>
         </div>
       </div>
@@ -156,21 +156,35 @@
           <h3>Background</h3>
           <input id="bg" type="file"/>
           <input type="number" min="-360" max="360" ng-model="angleVal" placeholder="angle"/>
-          <label for="repeatX"><input id="repeatX" name="bgRepeat" type="radio" ng-model="bgRepeat" value="repeat-x" /> – Repeat X</label>
-          <label for="repeatY"><input id="repeatY" name="bgRepeat" type="radio" ng-model="bgRepeat" value="repeat-y" /> – Repeat Y</label>
-          <label for="repeatAll"><input id="repeatAll" name="bgRepeat" type="radio" ng-model="bgRepeat" value="repeat" /> – Repeat</label>
-          <label for="repeatNo"><input id="repeatNo" name="bgRepeat" type="radio" ng-model="bgRepeat" value="no-repeat" /> – No Repeat</label>
+          <label for="repeatX"><input id="repeatX" name="bgRepeat" type="radio" ng-model="bgRepeat" value="repeat-x"/> –
+            Repeat X</label>
+          <label for="repeatY"><input id="repeatY" name="bgRepeat" type="radio" ng-model="bgRepeat" value="repeat-y"/> –
+            Repeat Y</label>
+          <label for="repeatAll"><input id="repeatAll" name="bgRepeat" type="radio" ng-model="bgRepeat" value="repeat"/>
+            – Repeat</label>
+          <label for="repeatNo"><input id="repeatNo" name="bgRepeat" type="radio" ng-model="bgRepeat"
+                                       value="no-repeat"/> – No Repeat</label>
         </div>
         <div class="large-3 columns">
           <h3>Grid Settings</h3>
-          <input type="number" min="2" max="20" ng-model="row" placeholder="rows"/>
-          <input type="number" min="1" max="12" ng-model="cell" placeholder="cells"/>
+          <label for="rows">
+            Rows
+            <input id="rows" type="number" min="2" max="20" ng-model="row" placeholder="rows"/>
+          </label>
+          <label for="columns">
+            Columns
+            <input id="columns" type="number" min="1" max="12" ng-model="cell" placeholder="cells"/>
+          </label>
+          <label for="verticalRythm">
+            Vertical Rythm
+            <input id="verticalRythm" type="number" min="14" max="40" placeholder="vertical rythm" />
+          </label>
         </div>
         <div class="large-3 columns">
 
         </div>
         <div class="large-3 columns">
-          <a href="#" class="large primary button">Preview</a>
+          <a href="#" class="large primary button" style="margin-top: 20px">Preview</a>
         </div>
 
 

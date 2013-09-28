@@ -28,9 +28,6 @@ function MyCtrl($scope, $log) {
     }
     $scope.cells = cell;
 
-    $scope.MyStyle = {'border': '1px solid #000', 'height': '20px'};
-
-
   });
 
   $scope.$log = $log;

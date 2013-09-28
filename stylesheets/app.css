@@ -7303,21 +7303,37 @@ a.th {
   max-width: 800px;
 }
 
-/* line 2, ../sass/_editor.scss */
+/* line 6, ../sass/_editor.scss */
 .gridator {
   overflow: hidden;
 }
 
-/* line 5, ../sass/_editor.scss */
+/* line 9, ../sass/_editor.scss */
 .gridator_wrap {
-  min-height: 100px;
   border: 1px solid #2795b6;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-transition: all ease;
+  -webkit-transition-delay: 0.5s;
+  -moz-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+/* line 17, ../sass/_editor.scss */
+.gridator_wrap .row_wrap {
+  -webkit-transition: all ease;
+  -webkit-transition-delay: 0.5s;
+  -moz-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+/* line 20, ../sass/_editor.scss */
+.gridator_wrap .row {
+  box-shadow: inset 0 -1px 0 rgba(64, 224, 208, 0.67);
 }
 
-/* line 16, ../sass/_editor.scss */
-.ng-scope .columns > div {
-  background: rgba(255, 255, 255, 0.7);
+/* line 25, ../sass/_editor.scss */
+.cell_bg {
+  background: rgba(217, 54, 0, 0.1);
 }
