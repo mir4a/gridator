@@ -54,12 +54,4 @@ console.log(bg);
 
 //angular.module('app')
 
-var app = angular.module('gridator', ['ngGrid']);
-app.controller('MyCtrl', function ($scope) {
 
-  $scope.gridOptions = {
-    columnDefs:
-      [{cellClass: 'columns large-1'}]
-
-  };
-});
