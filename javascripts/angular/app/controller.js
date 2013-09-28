@@ -1,11 +1,12 @@
 function anglesController($scope) {
-  $scope.$watch('angleVal', function () {
-  console.log($scope.angleVal);
+  $scope.$watch( function () {
     $scope.setAngle = {
       'transform': 'rotate(' + $scope.angleVal + 'deg)',
       '-ms-transform': 'rotate(' + $scope.angleVal + 'deg)',
-      '-webkit-transform': 'rotate(' + $scope.angleVal + 'deg)'
+      '-webkit-transform': 'rotate(' + $scope.angleVal + 'deg)',
+      'background-repeat': $scope.bgRepeat
     }
+    console.log($scope.CellSel);
   })
 }
 
@@ -28,12 +29,14 @@ function MyCtrl($scope, $log) {
     $scope.cells = cell;
 
     $scope.MyStyle = {'border': '1px solid #000', 'height': '20px'};
+
+
   });
 
   $scope.$log = $log;
   $scope.message = $scope;
-}
 
-function CellSel($scope) {
-  console.log('aaa');
+  $scope.$watch('CellSel', function() {
+
+  });
 }

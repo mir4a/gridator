@@ -50,4 +50,8 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
   alert('The File APIs are not fully supported in this browser.');
 }
 
+//$(window).bind('click', function(e){
+//  console.dir(e.target.offsetParent);
+//});
+
 //console.log(bg);
