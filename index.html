@@ -141,6 +141,12 @@
   <div class="gridator"  >
     editor
     <div ng-style="MyStyle"></div>
+    <div ng-init="">
+    <div ng-repeat='row in rows' class="row">
+      <div ng-repeat='cell in cells' class="columns large-1">
+        <div ng-style="MyStyle">{{row}} {{cell}}</div>
+      </div>
+    </div>
    {{MyStyle}}
   </div>
 </div>
@@ -153,8 +159,8 @@
     <div class="row">
       <div class="large-12 columns">
         <input type="file" />
-        <input  type="text" ng-model="bgsd" />
-        <input type="text" ng-model="bg" />
+        <input  type="text" ng-model="bgsd" placeholder="rowws"/>
+        <input type="text" ng-model="bg" placeholder="cell"/>
         <div class="panel">
           <p>This is a twelve column section in a row. Each of these includes a div.panel element so you can see where
             the columns are - it's not required at all for the grid.</p>
