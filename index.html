@@ -13,7 +13,10 @@
   <script type="text/javascript" src="javascripts/angular/app/controller.js"></script>
   <script type="text/javascript" src="javascripts/angular/app/service.js"></script>
 
-  
+  <style type="text/css">
+  .checked{
+    background-color: #FF0000;
+    }</style>
 </head>
 <body ng-app="gridator">
 <header>
@@ -145,7 +148,7 @@
     <div ng-init="">
     <div ng-repeat='row in rows.colums' class="row">
       <div ng-repeat='cell in row.cell' class="columns large-1">
-        <div ng-style="MyStyle" ng-click="selectrow($index,row.row)" >{{$index}}</div>
+        <div ng-style="MyStyle" ng-class="cell.class1" ng-click="selectrow(cell.index,row.row)" >{{$index}}</div>
       </div>
     </div>
    {{MyStyle}}
@@ -162,6 +165,7 @@
         <input id="bg" type="file" />
         <input  type="text" ng-model="row" placeholder="rows"/>
         <input type="text" ng-model="cell" placeholder="cells"/>
+        <input type="button" ng-show="select"/>
         <div class="panel">
           <p>This is a twelve column section in a row. Each of these includes a div.panel element so you can see where
             the columns are - it's not required at all for the grid.</p>
