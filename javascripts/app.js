@@ -28,12 +28,12 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
       var reader = new FileReader();
 
       // Closure to capture the file information.
-      reader.onload = (function(theFile) {
-        return function(e) {
+      reader.onload = (function (theFile) {
+        return function (e) {
           // Render thumbnail.
           var imgCheck = $(".gridator");
           console.log(e.target.result);
-          imgCheck.css('background', 'url('+ e.target.result+')');
+          imgCheck.css('background', 'url(' + e.target.result + ')');
         };
       })(f);
 
@@ -53,3 +53,13 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 console.log(bg);
 
 //angular.module('app')
+
+var app = angular.module('gridator', ['ngGrid']);
+app.controller('MyCtrl', function ($scope) {
+
+  $scope.gridOptions = {
+    columnDefs:
+      [{cellClass: 'columns large-1'}]
+
+  };
+});
