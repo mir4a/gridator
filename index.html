@@ -12,6 +12,7 @@
   <script type="text/javascript" src="javascripts/angular/app/app.js"></script>
   <script type="text/javascript" src="javascripts/angular/app/controller.js"></script>
   <script type="text/javascript" src="javascripts/angular/app/service.js"></script>
+
   
 </head>
 <body ng-app="gridator">
@@ -142,9 +143,9 @@
     editor
     <div ng-style="MyStyle"></div>
     <div ng-init="">
-    <div ng-repeat='row in rows' class="row">
-      <div ng-repeat='cell in cells' class="columns large-1">
-        <div ng-style="MyStyle" ng-click="selectrow(row, cell)" ng-model="row_">{{row}} {{cell}}</div>
+    <div ng-repeat='row in rows.colums' class="row">
+      <div ng-repeat='cell in row.cell' class="columns large-1">
+        <div ng-style="MyStyle" ng-click="selectrow($index,row.row)" >{{$index}}</div>
       </div>
     </div>
    {{MyStyle}}
