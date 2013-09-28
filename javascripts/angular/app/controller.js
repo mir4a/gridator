@@ -1,12 +1,14 @@
 function MyCtrl ($scope) {
+	$scope.row = 3;
+	$scope.cell = 12;
 	$scope.$watch( function(){
- 	var rows = $scope.bgsd;
+ 	var rows = $scope.row;
  	var row = [];
  	for(var i=0;i<rows;i++) {
   		row.push(i+1);
 	}
 	$scope.rows = row;
-	var cells = $scope.bg;
+	var cells = $scope.cell;
 	var cell = [];
 	for(var i=0;i<cells;i++)
 	{
