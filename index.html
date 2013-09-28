@@ -138,9 +138,10 @@
 
 
 <div class="row" ng-controller="MyCtrl">
-  <div class="gridator"  ng-grid="gridOptions">
+  <div class="gridator"  >
     editor
-   
+    <div ng-style="MyStyle"></div>
+   {{MyStyle}}
   </div>
 </div>
 
@@ -152,7 +153,7 @@
     <div class="row">
       <div class="large-12 columns">
         <input id="bg" type="file" />
-        <!--<input id="bg" type="text" ng-model="bg" />-->
+        <input id="bg" type="text" ng-model="bgsd" />
         <div class="panel">
           <p>This is a twelve column section in a row. Each of these includes a div.panel element so you can see where
             the columns are - it's not required at all for the grid.</p>
