@@ -144,7 +144,7 @@
     <div ng-init="">
     <div ng-repeat='row in rows' class="row">
       <div ng-repeat='cell in cells' class="columns large-1">
-        <div ng-style="MyStyle">{{row}} {{cell}}</div>
+        <div ng-style="MyStyle" ng-click="selectrow(row, cell)" ng-model="row_">{{row}} {{cell}}</div>
       </div>
     </div>
    {{MyStyle}}
@@ -158,7 +158,7 @@
     <!-- Grid Example -->
     <div class="row">
       <div class="large-12 columns">
-        <input type="file" />
+        <input id="bg" type="file" />
         <input  type="text" ng-model="row" placeholder="rows"/>
         <input type="text" ng-model="cell" placeholder="cells"/>
         <div class="panel">

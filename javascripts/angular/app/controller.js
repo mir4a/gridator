@@ -18,6 +18,10 @@ function MyCtrl ($scope) {
     
       $scope.MyStyle = {'border':'1px solid #000','height':'20px'};
     });
-    
+    $scope.selectrow = function(e,i)
+    {
+    	console.log(e);
+    	console.log(i);
+    }
 	 
 }
