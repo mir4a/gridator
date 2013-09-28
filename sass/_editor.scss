@@ -1,5 +1,7 @@
-$gridator_height: 300px;
-
+$gridator_height: 100px;
+.gridator {
+  overflow: hidden;
+}
 .gridator_wrap {
   //@extend .row;
   //@extend .column;

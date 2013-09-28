@@ -7303,16 +7303,21 @@ a.th {
   max-width: 800px;
 }
 
-/* line 3, ../sass/_editor.scss */
+/* line 2, ../sass/_editor.scss */
+.gridator {
+  overflow: hidden;
+}
+
+/* line 5, ../sass/_editor.scss */
 .gridator_wrap {
-  min-height: 300px;
+  min-height: 100px;
   border: 1px solid #2795b6;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 14, ../sass/_editor.scss */
+/* line 16, ../sass/_editor.scss */
 .ng-scope .columns > div {
   background: rgba(255, 255, 255, 0.7);
 }
