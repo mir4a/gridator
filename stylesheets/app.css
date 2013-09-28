@@ -578,7 +578,7 @@ select {
   clear: both;
 }
 /* line 121, ../../../.rvm/gems/ruby-2.0.0-p247@gridator/gems/zurb-foundation-4.3.2/scss/foundation/components/_grid.scss */
-.row.collapse > .column, .row.collapse > .gridator,
+.row.collapse > .column,
 .row.collapse > .columns {
   position: relative;
   padding-left: 0;
@@ -627,7 +627,7 @@ select {
 }
 
 /* line 132, ../../../.rvm/gems/ruby-2.0.0-p247@gridator/gems/zurb-foundation-4.3.2/scss/foundation/components/_grid.scss */
-.column, .gridator,
+.column,
 .columns {
   position: relative;
   padding-left: 0.9375em;
@@ -638,7 +638,7 @@ select {
 
 @media only screen {
   /* line 137, ../../../.rvm/gems/ruby-2.0.0-p247@gridator/gems/zurb-foundation-4.3.2/scss/foundation/components/_grid.scss */
-  .column, .gridator,
+  .column,
   .columns {
     position: relative;
     padding-left: 0.9375em;
@@ -795,7 +795,7 @@ select {
   }
 
   /* line 151, ../../../.rvm/gems/ruby-2.0.0-p247@gridator/gems/zurb-foundation-4.3.2/scss/foundation/components/_grid.scss */
-  .column.small-centered, .small-centered.gridator,
+  .column.small-centered,
   .columns.small-centered {
     position: relative;
     margin-left: auto;
@@ -872,7 +872,7 @@ select {
   }
 
   /* line 158, ../../../.rvm/gems/ruby-2.0.0-p247@gridator/gems/zurb-foundation-4.3.2/scss/foundation/components/_grid.scss */
-  .large-12, .gridator {
+  .large-12 {
     position: relative;
     width: 100%;
   }
@@ -1104,7 +1104,7 @@ select {
   }
 
   /* line 171, ../../../.rvm/gems/ruby-2.0.0-p247@gridator/gems/zurb-foundation-4.3.2/scss/foundation/components/_grid.scss */
-  .column.large-centered, .large-centered.gridator,
+  .column.large-centered,
   .columns.large-centered {
     position: relative;
     margin-left: auto;
@@ -1113,7 +1113,7 @@ select {
   }
 
   /* line 174, ../../../.rvm/gems/ruby-2.0.0-p247@gridator/gems/zurb-foundation-4.3.2/scss/foundation/components/_grid.scss */
-  .column.large-uncentered, .large-uncentered.gridator,
+  .column.large-uncentered,
   .columns.large-uncentered {
     margin-left: 0;
     margin-right: 0;
@@ -1121,7 +1121,7 @@ select {
   }
 
   /* line 181, ../../../.rvm/gems/ruby-2.0.0-p247@gridator/gems/zurb-foundation-4.3.2/scss/foundation/components/_grid.scss */
-  .column.large-uncentered.opposite, .large-uncentered.opposite.gridator,
+  .column.large-uncentered.opposite,
   .columns.large-uncentered.opposite {
     float: right !important;
   }
@@ -2694,7 +2694,7 @@ form .row .row {
   margin: 0 -0.5em;
 }
 /* line 70, ../../../.rvm/gems/ruby-2.0.0-p247@gridator/gems/zurb-foundation-4.3.2/scss/foundation/components/_forms.scss */
-form .row .row .column, form .row .row .gridator,
+form .row .row .column,
 form .row .row .columns {
   padding: 0 0.5em;
 }
@@ -2703,7 +2703,7 @@ form .row .row.collapse {
   margin: 0;
 }
 /* line 76, ../../../.rvm/gems/ruby-2.0.0-p247@gridator/gems/zurb-foundation-4.3.2/scss/foundation/components/_forms.scss */
-form .row .row.collapse .column, form .row .row.collapse .gridator,
+form .row .row.collapse .column,
 form .row .row.collapse .columns {
   padding: 0;
 }
@@ -2715,10 +2715,9 @@ form .row .row.collapse input {
   -webkit-border-top-right-radius: 0;
 }
 /* line 89, ../../../.rvm/gems/ruby-2.0.0-p247@gridator/gems/zurb-foundation-4.3.2/scss/foundation/components/_forms.scss */
-form .row input.column, form .row input.gridator,
+form .row input.column,
 form .row input.columns,
 form .row textarea.column,
-form .row textarea.gridator,
 form .row textarea.columns {
   padding-left: 0.5em;
 }
@@ -5455,7 +5454,7 @@ label.error {
   top: 50px;
 }
 /* line 62, ../../../.rvm/gems/ruby-2.0.0-p247@gridator/gems/zurb-foundation-4.3.2/scss/foundation/components/_reveal.scss */
-.reveal-modal .column, .reveal-modal .gridator,
+.reveal-modal .column,
 .reveal-modal .columns {
   min-width: 0;
 }
@@ -7305,10 +7304,15 @@ a.th {
 }
 
 /* line 3, ../sass/_editor.scss */
-.gridator {
+.gridator_wrap {
   min-height: 300px;
   border: 1px solid #2795b6;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+/* line 14, ../sass/_editor.scss */
+.ng-scope .columns > div {
+  background: rgba(255, 255, 255, 0.7);
 }

@@ -1,10 +1,18 @@
 $gridator_height: 300px;
 
-.gridator {
+.gridator_wrap {
   //@extend .row;
-  @extend .column;
-  @extend .large-12;
+  //@extend .column;
+  //@extend .large-12;
   min-height: $gridator_height;
   border: 1px solid #2795b6;
   @include box-sizing(border-box);
+}
+
+.ng-scope {
+  .columns {
+    >div {
+      background: transparentize(#fff, 0.3);
+    }
+  }
 }

@@ -1,13 +1,15 @@
 function anglesController($scope) {
-//  console.log($scope.gridatorAngle);
   $scope.$watch('angleVal', function () {
+  console.log($scope.angleVal);
     $scope.setAngle = {
-      'transform': 'rotate(' + $scope.angleVal + 'deg);',
-      '-ms-transform': 'rotate(' + $scope.angleVal + 'deg);',
-      '-webkit-transform': 'rotate(' + $scope.angleVal + 'deg);'
+      'transform': 'rotate(' + $scope.angleVal + 'deg)',
+      '-ms-transform': 'rotate(' + $scope.angleVal + 'deg)',
+      '-webkit-transform': 'rotate(' + $scope.angleVal + 'deg)'
     }
   })
 }
+
+
 function MyCtrl($scope, $log) {
   $scope.row = 3;
   $scope.cell = 12;

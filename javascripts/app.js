@@ -31,7 +31,7 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
       reader.onload = (function (theFile) {
         return function (e) {
           // Render thumbnail.
-          var imgCheck = $(".gridator");
+          var imgCheck = $(".gridator_wrap");
           console.log(e.target.result);
           imgCheck.css('background', 'url(' + e.target.result + ')');
         };
