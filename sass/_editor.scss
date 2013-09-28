@@ -1,0 +1,10 @@
+$gridator_height: 300px;
+
+.gridator {
+  //@extend .row;
+  @extend .column;
+  @extend .large-12;
+  min-height: $gridator_height;
+  border: 1px solid #2795b6;
+  @include box-sizing(border-box);
+}
