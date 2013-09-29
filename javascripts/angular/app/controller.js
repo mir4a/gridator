@@ -4,7 +4,7 @@ function MyCtrl($scope) {
 	$scope.cell = 12;
 	
 	$scope.MyStyle = {'border':'1px solid #000','height':'20px'};
-	$scope.$watch( 'row', function(){
+	$scope.$watch( 'cell', function(){
  	
 	var rows = $scope.row;   //СТРОКИ
  	var cells = $scope.cell; //КОЛОНКИ
@@ -87,6 +87,17 @@ function MyCtrl($scope) {
 
     $scope.colearselect = function()
     {
+        for (j in $scope.rows.colums)
+        {
+
+            for(i in $scope.rows.colums[j].cell)
+            {
+                
+                $scope.rows.colums[j].cell[i].check = 0;
+                $scope.rows.colums[j].cell[i].class1 = 'not-checked'
+            }
+        }
+        /*
     	var rows = $scope.row;   //СТРОКИ
  		var cells = $scope.cell; //КОЛОНКИ
     	for(var j=0;j<rows;j++) {
@@ -96,6 +107,7 @@ function MyCtrl($scope) {
 				$scope.rows.colums['row'+j].cell['elemnt'+i].class1 = 'not-checked';
 			}
 		}
+        */
     }
     $scope.summElement = function()
     {
@@ -133,7 +145,6 @@ function MyCtrl($scope) {
             {
                 
                 var active = $scope.rows.colums[j].cell[i];
-                console.log(active);
                 if (active.check == 1 && select > 0) {
                     select++;
                     $scope.rows.colums[j].cell[mainelement].cell = $scope.rows.colums[j].cell[mainelement].cell+ active.cell;
