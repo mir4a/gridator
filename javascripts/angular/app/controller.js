@@ -14,9 +14,9 @@ function MyCtrl($scope) {
  		var cell =new Object;
  		for(var i=0;i<cells;i++)
 		{
-			cell['elemnt'+i] = {'cell':1,'check':0,'class1':'not-checked','index':i,'cellhtml':'&nbsp;'};
+			cell['elemnt'+i] = {'cell':1,'check':0,'class1':'not-checked','index':parseInt(i),'cellhtml':'&nbsp;'};
 		}
-		result.colums['row'+j] = {'row' :j,'cell':cell};
+		result.colums['row'+j] = {'row' :parseInt(j),'cell':cell};
   		
 	}
 
@@ -69,7 +69,7 @@ function MyCtrl($scope) {
     	 	}
     	 }
     	 */
-    	 console.log(select);
+    	 console.log(active);
     	
     }
     $scope.gethtmlElement = function()
@@ -99,19 +99,22 @@ function MyCtrl($scope) {
     }
     $scope.summElement = function()
     {
-    	 var = rows = $scope.rows.length;
-
+        /*
+    	 var rows = Object.keys( $scope.rows.colums).length;
+         console.log(rows);
+         
     	for(var j=0;j<rows;j++) {
     		var select=0;
     		var mainelement = null;
+            var cells = Object.keys($scope.rows.colums['row'+j].cell).length;
 	 		for(var i=0;i<cells;i++)
-	 
 			{
 				var active = $scope.rows.colums['row'+j].cell['elemnt'+i];
-				
+				console.log(active);
+                console.log(j+' cell '+i);
 				if (active.check == 1 && select > 0) {
 					select++;
-					$scope.rows.colums['row'+j].cell['elemnt'+mainelement].cell ++;
+					$scope.rows.colums['row'+j].cell['elemnt'+mainelement].cell = $scope.rows.colums['row'+j].cell['elemnt'+mainelement].cell+ active.cell;
 					delete  $scope.rows.colums['row'+j].cell['elemnt'+i];
 				};
 				if (active.check == 1 && select ==0) {
@@ -121,7 +124,31 @@ function MyCtrl($scope) {
 				};
 			}
 		}	
+        */
+        for (j in $scope.rows.colums)
+        {
+            var select=0;
+                var mainelement = null;
+            for(i in $scope.rows.colums[j].cell)
+            {
+                
+                var active = $scope.rows.colums[j].cell[i];
+                console.log(active);
+                if (active.check == 1 && select > 0) {
+                    select++;
+                    $scope.rows.colums[j].cell[mainelement].cell = $scope.rows.colums[j].cell[mainelement].cell+ active.cell;
+                    delete  $scope.rows.colums[j].cell[i];
+                    console.log($scope.rows.colums[j].cell[i]);
+                };
+                if (active.check == 1 && select ==0) {
+                    select++;
+                    //active.cell ++;
+                    mainelement = i;
+                };
+            }
+        }
 		$scope.editcell = 0;
+        $scope.colearselect ();
     }
 	 
 }
