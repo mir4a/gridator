@@ -166,7 +166,9 @@
         <input id="bg" type="file" />
         <input  type="text" ng-model="row" placeholder="rows"/>
         <input type="text" ng-model="cell" placeholder="cells"/>
-        <textarea ng-show="editcell"  ui-tinymce  ng-model="cellcontent" cell="34"></textarea>
+        <span ng-show="editcell" >
+        <textarea  ui-tinymce  ng-model="cellcontent" style="height:250px"></textarea>
+      </span>
         <input type="hidden" ng-model="activecell">
         <input type="button" ng-show="editcell" value="Сохранить" ng-click="gethtmlElement()"/>
         <input type="button" ng-show="select" value="Объединить" ng-click="summElement()">
