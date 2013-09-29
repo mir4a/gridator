@@ -7304,11 +7304,48 @@ a.th {
   max-width: 800px;
 }
 
-/* line 3, ../sass/_editor.scss */
+/* line 10, ../sass/_editor.scss */
+body {
+  background: #f2f2f2;
+}
+
+/* line 14, ../sass/_editor.scss */
 .gridator {
-  min-height: 300px;
-  border: 1px solid #2795b6;
-  -moz-box-sizing: border-box;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  background: white;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-box-shadow: 0 0 50px 30px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 0 0 50px 30px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 0 50px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* line 27, ../sass/_editor.scss */
+.gridator_wrap .row {
+  margin-bottom: 32px;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(64, 224, 208, 0.67), inset 0 1px 0 rgba(64, 224, 208, 0.67);
+  -moz-box-shadow: inset 0 -1px 0 rgba(64, 224, 208, 0.67), inset 0 1px 0 rgba(64, 224, 208, 0.67);
+  box-shadow: inset 0 -1px 0 rgba(64, 224, 208, 0.67), inset 0 1px 0 rgba(64, 224, 208, 0.67);
+}
+/* line 30, ../sass/_editor.scss */
+.gridator_wrap .row:first-child {
+  -webkit-box-shadow: inset 0 -1px 0 rgba(64, 224, 208, 0.67);
+  -moz-box-shadow: inset 0 -1px 0 rgba(64, 224, 208, 0.67);
+  box-shadow: inset 0 -1px 0 rgba(64, 224, 208, 0.67);
+}
+/* line 33, ../sass/_editor.scss */
+.gridator_wrap .row:last-child {
+  margin-bottom: 0;
+  -webkit-box-shadow: inset 0 1px 0 rgba(64, 224, 208, 0.67);
+  -moz-box-shadow: inset 0 1px 0 rgba(64, 224, 208, 0.67);
+  box-shadow: inset 0 1px 0 rgba(64, 224, 208, 0.67);
+}
+
+/* line 40, ../sass/_editor.scss */
+.cell_bg {
+  min-height: 32px;
+  background: rgba(217, 54, 0, 0.1);
+  cursor: pointer;
 }

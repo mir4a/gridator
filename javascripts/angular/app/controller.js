@@ -3,7 +3,7 @@ function MyCtrl($scope) {
 	$scope.row = 3;
 	$scope.cell = 12;
 	
-	$scope.MyStyle = {'border':'1px solid #000','height':'20px'};
+//	$scope.MyStyle = {'border':'1px solid #000','height':'20px'};
 	$scope.$watch( 'cell', function(){
  	
 	var rows = $scope.row;   //СТРОКИ
