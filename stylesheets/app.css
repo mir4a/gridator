@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
@@ -7304,12 +7305,87 @@ a.th {
   max-width: 800px;
 }
 
-/* line 10, ../sass/_editor.scss */
+/* line 15, ../sass/_editor.scss */
 body {
+  font: 100 1em/130% "Lato", sans-serif;
   background: #f2f2f2;
 }
 
-/* line 14, ../sass/_editor.scss */
+/* line 20, ../sass/_editor.scss */
+p {
+  font: 300 1em/130% "Lato", sans-serif;
+}
+
+/* line 24, ../sass/_editor.scss */
+.h1, h1, h2, h3, h4, h5, h6 {
+  font: 900 2em/150% "Lato", sans-serif;
+}
+
+/* line 32, ../sass/_editor.scss */
+h2 {
+  font-size: 1.8em;
+  font-style: italic;
+}
+
+/* line 38, ../sass/_editor.scss */
+h3 {
+  font-size: 1.75em;
+  font-weight: 700;
+}
+
+/* line 44, ../sass/_editor.scss */
+h4 {
+  font-size: 1.65em;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* line 51, ../sass/_editor.scss */
+h5 {
+  font-size: 1.35em;
+  font-weight: 900;
+}
+
+/* line 57, ../sass/_editor.scss */
+h6 {
+  font-size: 1.15em;
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* line 64, ../sass/_editor.scss */
+.clear {
+  float: none;
+  clear: both;
+}
+
+/* line 69, ../sass/_editor.scss */
+.column, .gridator {
+  position: relative;
+}
+
+/* line 73, ../sass/_editor.scss */
+.edit_panel {
+  position: fixed;
+  top: 100px;
+  left: 40px;
+  z-index: 999;
+}
+/* line 78, ../sass/_editor.scss */
+.edit_panel .f-dropdown {
+  width: 400px;
+  max-width: 400px;
+  -webkit-box-shadow: 0 5px 20px 10px rgba(255, 255, 255, 0.7);
+  -moz-box-shadow: 0 5px 20px 10px rgba(255, 255, 255, 0.7);
+  box-shadow: 0 5px 20px 10px rgba(255, 255, 255, 0.7);
+}
+
+/* line 85, ../sass/_editor.scss */
+.button_wrap {
+  padding: 5px;
+}
+
+/* line 89, ../sass/_editor.scss */
 .gridator {
   margin-top: 60px;
   margin-bottom: 60px;
@@ -7322,20 +7398,20 @@ body {
   box-shadow: 0 0 50px 30px rgba(0, 0, 0, 0.18);
 }
 
-/* line 27, ../sass/_editor.scss */
+/* line 102, ../sass/_editor.scss */
 .gridator_wrap .row {
   margin-bottom: 32px;
   -webkit-box-shadow: inset 0 -1px 0 rgba(64, 224, 208, 0.67), inset 0 1px 0 rgba(64, 224, 208, 0.67);
   -moz-box-shadow: inset 0 -1px 0 rgba(64, 224, 208, 0.67), inset 0 1px 0 rgba(64, 224, 208, 0.67);
   box-shadow: inset 0 -1px 0 rgba(64, 224, 208, 0.67), inset 0 1px 0 rgba(64, 224, 208, 0.67);
 }
-/* line 30, ../sass/_editor.scss */
+/* line 105, ../sass/_editor.scss */
 .gridator_wrap .row:first-child {
   -webkit-box-shadow: inset 0 -1px 0 rgba(64, 224, 208, 0.67);
   -moz-box-shadow: inset 0 -1px 0 rgba(64, 224, 208, 0.67);
   box-shadow: inset 0 -1px 0 rgba(64, 224, 208, 0.67);
 }
-/* line 33, ../sass/_editor.scss */
+/* line 108, ../sass/_editor.scss */
 .gridator_wrap .row:last-child {
   margin-bottom: 0;
   -webkit-box-shadow: inset 0 1px 0 rgba(64, 224, 208, 0.67);
@@ -7343,9 +7419,26 @@ body {
   box-shadow: inset 0 1px 0 rgba(64, 224, 208, 0.67);
 }
 
-/* line 40, ../sass/_editor.scss */
+/* line 115, ../sass/_editor.scss */
 .cell_bg {
   min-height: 32px;
   background: rgba(217, 54, 0, 0.1);
   cursor: pointer;
+}
+
+/* line 121, ../sass/_editor.scss */
+.large-dropdown {
+  width: 400px;
+}
+
+/* line 125, ../sass/_editor.scss */
+.reveal-modal {
+  z-index: 9999;
+}
+/* line 127, ../sass/_editor.scss */
+.reveal-modal.expand {
+  top: 0;
+  margin-left: -50%;
+  width: 100%;
+  padding: 0;
 }

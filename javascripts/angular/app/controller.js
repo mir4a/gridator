@@ -4,7 +4,7 @@ function MyCtrl($scope) {
 	$scope.cell = 12;
 	
 //	$scope.MyStyle = {'border':'1px solid #000','height':'20px'};
-	$scope.$watch( 'cell', function(){
+	$scope.$watch( 'row', function(){
  	
 	var rows = $scope.row;   //СТРОКИ
  	var cells = $scope.cell; //КОЛОНКИ
@@ -165,16 +165,18 @@ function MyCtrl($scope) {
 
     $scope.generateHTML = function()
     {
+      var gridatorBg = $('.gridator').css('background');
         var result = '';
         for (j in $scope.rows.colums)
         {
-
+          result += '<div class="row" style="background: '+gridatorBg+';">';
             for(i in $scope.rows.colums[j].cell)
             {
                 
                 var active =  $scope.rows.colums[j].cell[i];
-                result += '<div class="rows-'+active.index+'">'+active.cellhtml+'</div>';
+                result += '<div class="columns large-'+(active.cell)+'">'+active.cellhtml+'</div>';
             }
+          result += '</div>';
         }
         $scope.reshtml = result;
     }

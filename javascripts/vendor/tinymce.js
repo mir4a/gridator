@@ -27,10 +27,11 @@ angular.module('ui.tinymce', [])
           expression = {};
         }
         options = {
+          plugins: "image",
           // Update model when calling setContent (such as from the source editor popup)
           setup: function (ed) {
             var args;
-            ed.on('init', function(args) {
+            ed.on('init', function (args) {
               ngModel.$render();
             });
             // Update model on button click
@@ -45,7 +46,7 @@ angular.module('ui.tinymce', [])
             });
             // Update model on change, i.e. copy/pasted text, plugins altering content
             ed.on('SetContent', function (e) {
-              if(!e.initial){
+              if (!e.initial) {
                 ed.save();
                 updateView();
               }
@@ -60,12 +61,10 @@ angular.module('ui.tinymce', [])
         };
         // extend options with initial uiTinymceConfig and options from directive attribute value
         angular.extend(options, uiTinymceConfig, expression);
-        setTimeout(function () {
-          tinymce.init(options);
-        });
+        tinymce.init(options);
 
 
-        ngModel.$render = function() {
+        ngModel.$render = function () {
           if (!tinyInstance) {
             tinyInstance = tinymce.get(attrs.id);
           }

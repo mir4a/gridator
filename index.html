@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Editor</title>
+  <meta lang="en-US">
   <meta charset="utf-8">
   <link href="stylesheets/app.css" media="screen, projection" rel="stylesheet" type="text/css"/>
   <link href="stylesheets/ng-grid.css" media="screen, projection" rel="stylesheet" type="text/css"/>
@@ -20,110 +21,156 @@
     }</style>
 </head>
 <body ng-app="gridator">
-<header>
-  <nav class="top-bar" data-options="is_hover:false">
-    <ul class="title-area">
-      <!-- Title Area -->
-      <li class="name">
-        <h1><a href="#">Gridator</a></h1>
-      </li>
-      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
-
-    <section class="top-bar-section">
-      <!-- Left Nav Section -->
-
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li class="divider hide-for-small"></li>
-        <li class="has-dropdown"><a href="#">What is this?</a>
-
-          <ul class="dropdown">
-            <li><a href="#">About the Gridator</a></li>
-            <li><a href="#">Authors</a></li>
-            <li><a href="#">Source</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Help</a></li>
-          </ul>
+<div ng-controller="MyCtrl">
+  <header class="fixed">
+    <nav class="top-bar" data-options="is_hover:false">
+      <ul class="title-area">
+        <!-- Title Area -->
+        <li class="name">
+          <h1><a href="#">Gridator</a></h1>
         </li>
-        <li class="divider"></li>
-        <li class="divider show-for-small"></li>
-        <li class="has-form">
-          <a class="button" href="#">Like!</a>
-        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
-    </section>
-  </nav>
-</header>
-<div class="row">
-  <div class="twelve columns">
-    <h2>I need your grids, rows and colls.</h2>
 
-    <hr/>
+      <section class="top-bar-section">
+        <!-- Left Nav Section -->
+
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="divider hide-for-small"></li>
+          <li class="has-dropdown"><a href="#">What is this?</a>
+
+            <ul class="dropdown">
+              <li><a href="#">About the Gridator</a></li>
+              <li><a href="#">Authors</a></li>
+              <li><a href="#">Source</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Help</a></li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+          <li class="divider show-for-small"></li>
+          <li class="has-form">
+            <a class="button" href="#">Like!</a>
+          </li>
+        </ul>
+      </section>
+    </nav>
+  </header>
+  <div class="row">
+    <div class="twelve columns">
+      <h2>I need your grids, rows and colls.</h2>
+
+      <hr/>
+    </div>
   </div>
-</div>
 
 
-<div class="row" ng-controller="MyCtrl">
-  <div class="column large-12">
-    <div class="gridator">
-      <div class="gridator_wrap">
-        <div ng-style="MyStyle"></div>
-        <div ng-init="">
-          <div ng-repeat='row in rows.colums' class="row">
-            <div ng-repeat='cell in row.cell' class="columns large-{{cell.cell}}">
-              <div ng-style="MyStyle" ng-class="cell.class1" ng-click="selectrow(cell.index,row.row)"
-                   ng-bind-html-unsafe="cell.cellhtml" class="cell_bg"></div>
+  <div class="row">
+    <div class="column large-12">
+      <div class="gridator">
+        <div class="gridator_wrap">
+          <div ng-style="MyStyle"></div>
+          <div ng-init="">
+            <div ng-repeat='row in rows.colums' class="row">
+              <div ng-repeat='cell in row.cell' class="columns large-{{cell.cell}}">
+                <div ng-style="MyStyle" ng-class="cell.class1" ng-click="selectrow(cell.index,row.row)"
+                     ng-bind-html-unsafe="cell.cellhtml" class="cell_bg"></div>
 
+              </div>
             </div>
+            {{MyStyle}}
           </div>
-          {{MyStyle}}
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="large-12 columns">
-        <a href="#" data-dropdown="drop1" ng-show="select">Has Dropdown</a>
-        <ul id="drop1" class="f-dropdown" data-dropdown-content>
-          <li><a href="#" class="button medium radius alert" ng-click="summElement()">Join</a></li>
+      <div class="edit_panel">
+        <a href="#" data-dropdown="drop1" ng-show="select"
+           class="has-dropdown button success small round">Editor</a>
+
+        <div id="drop1" class="f-dropdown medium" data-dropdown-content>
+          <div class="button_wrap">
+            <a href="#" class="button small radius alert" ng-click="summElement()">Join Columns</a>
+          </div>
+          <div class="divider"></div>
           <div ng-show="editcell">
             <textarea ui-tinymce ng-model="cellcontent" style="height:250px"></textarea>
           </div>
-          <li>
+          <input type="hidden" ng-model="activecell">
 
-          <a class="button success large radius" ng-show="editcell" value="Сохранить" ng-click="gethtmlElement()">Save</a>
-          </li>
-        </ul>
-
-        <div id="edit" class="reveal-modal">
-          <h2>Awesome. I have it.</h2>
-          <p class="lead">Your couch.  It is mine.</p>
-          <p>Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
-          <a class="close-reveal-modal">&#215;</a>
-        </div>
-
-
-        <!-- Grid Example -->
-        <div class="row">
-          <div class="large-12 columns">
-            <input id="bg" type="file"/>
-            <input type="text" ng-model="row" placeholder="rows"/>
-            <input type="text" ng-model="cell" placeholder="cells"/>
-
-
-            <input type="hidden" ng-model="activecell">
-            <input type="button" ng-show="editcell" value="Сохранить" ng-click="gethtmlElement()"/>
-
-            <a href="#generated" class="large success button dropdown round" ng-click="generateHTML()" >generate HTML</a>
-            <SPAN ng-show="reshtml">{{reshtml}}</SPAN>
-
+          <div class="button_wrap">
+            <a class="button right success small radius" ng-show="editcell" value="Сохранить"
+               ng-click="gethtmlElement()">Save</a>
           </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+
+          <div id="result" class="reveal-modal expand">
+            <div class="row">
+              <div class="column large-12" ng-show="reshtml" ng-bind-html-unsafe="reshtml"></div>
+            </div>
+            <a class="close-reveal-modal">&#215;</a>
+          </div>
+
+
+          <!-- Grid Example -->
+          <div class="row">
+            <div class="large-12 columns">
+
+              <div class="section-container auto" data-section data-options="deep_linking: true">
+                <section class="active">
+                  <p class="title" data-section-title><a href="#section1">Generate HTML</a></p>
+
+                  <div class="content" data-slug="section1" data-section-content>
+                    <p>Content of section 1.
+                      <a href="#generated" data-reveal-id="result" class="large right success button dropdown round"
+                         ng-click="generateHTML()">generate
+                        HTML</a>
+                    </p>
+
+                    <div class="clear"></div>
+                  </div>
+                </section>
+                <section>
+                  <p class="title" data-section-title><a href="#section2">Grid Options</a></p>
+
+                  <div class="content" data-slug="section2" data-section-content>
+                    <p>Content of section 2.</p>
+
+                    <div class="row">
+                      <div class="columns large-4">
+                        <h6>Background</h6>
+
+                        <input id="bg" type="file"/>
+
+                      </div>
+                      <div class="columns large-4">
+                        <h6>Rows and Cols</h6>
+                        <input type="text" ng-model="row" placeholder="rows"/>
+                        <input type="text" ng-model="cell" placeholder="cells"/>
+
+                      </div>
+                      <div class="columns large-4">
+                        <h6>Other Stuff</h6>
+                        <p>Blah</p>
+                      </div>
+                    </div>
+
+                  </div>
+                </section>
+              </div>
+
+
+            </div>
+          </div>
+
         </div>
 
       </div>
-
     </div>
   </div>
 </div>
@@ -132,6 +179,7 @@
 <script type="text/javascript" src="javascripts/foundation/foundation.dropdown.js"></script>
 <script type="text/javascript" src="javascripts/foundation/foundation.topbar.js"></script>
 <script type="text/javascript" src="javascripts/foundation/foundation.reveal.js"></script>
+<script type="text/javascript" src="javascripts/foundation/foundation.section.js"></script>
 <script type="text/javascript">
   $(document).foundation();
 </script>

@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
 $gridator_height: 300px;
 $black: #000;
 $white: #fff;
@@ -5,10 +6,84 @@ $red: #d93600;
 $turquoise: turquoise;
 $blue: #2795b6;
 
+$large_dropdown_width: 400px;
+
 $vertical_rythm: 32px;
 
+$lato: "Lato", sans-serif;
+
 body {
+  font: 100 1em/130% $lato;
   background: darken($white,5%);
+}
+
+p {
+  font: 300 1em/130% $lato;
+}
+
+.h1 {
+  font: 900 2em/150% $lato;
+}
+
+h1 {
+  @extend .h1;
+}
+
+h2 {
+  @extend .h1;
+  font-size: 1.8em;
+  font-style: italic;
+}
+
+h3 {
+  @extend .h1;
+  font-size: 1.75em;
+  font-weight: 700;
+}
+
+h4 {
+  @extend .h1;
+  font-size: 1.65em;
+  font-weight: 700;
+  font-style: italic;
+}
+
+h5 {
+  @extend .h1;
+  font-size: 1.35em;
+  font-weight: 900;
+}
+
+h6 {
+  @extend .h1;
+  font-size: 1.15em;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.clear {
+  float: none;
+  clear: both;
+}
+
+.column {
+  position: relative;
+}
+
+.edit_panel {
+  position: fixed;
+  top: 100px;
+  left: 40px;
+  z-index: 999;
+  .f-dropdown {
+    width: $large_dropdown_width;
+    max-width: $large_dropdown_width;
+    @include box-shadow(0 5px 20px 10px transparentize($white,0.3));
+  }
+}
+
+.button_wrap {
+  padding: 5px;
 }
 
 .gridator {
@@ -41,4 +116,18 @@ body {
   min-height: $vertical_rythm;
   background: transparentize($red, 0.9);
   cursor: pointer;
+}
+
+.large-dropdown {
+  width: $large_dropdown_width;
+}
+
+.reveal-modal {
+  z-index: 9999;
+  &.expand {
+    top: 0;
+    margin-left: -50%;
+    width: 100%;
+    padding: 0;
+  }
 }

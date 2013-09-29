@@ -32,7 +32,7 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
         return function (e) {
           // Render thumbnail.
           var imgCheck = $(".gridator");
-          console.log(e.target.result);
+//          console.log(e.target.result);
           imgCheck.css('background', 'url(' + e.target.result + ')');
         };
       })(f);
@@ -50,7 +50,8 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
   alert('The File APIs are not fully supported in this browser.');
 }
 
-console.log(bg);
+
+//console.log(bg);
 
 //angular.module('app')
 
