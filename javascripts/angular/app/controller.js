@@ -37,6 +37,13 @@ function MyCtrl ($scope) {
     	 	active.class1 = 'not-checked';
     	 	active.check = 0;
     	 }
+    	  if (select.row == null) {
+    	 	select.row = row;
+    	 	select.startcell = cell;
+    	 }else {
+    	 	active.cell++;
+    	 	delete $scope.rows.colums['row'+row].cell['elemnt'+cell+1];
+    	 }
     	 select[active.$$hashKey]=1;
     	 /*
     	 if (select.row == null) {
@@ -53,6 +60,10 @@ function MyCtrl ($scope) {
     	 */
     	 console.log(select);
     	
+    }
+    $scope.resuldata = function()
+    {
+
     }
 	 
 }

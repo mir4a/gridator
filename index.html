@@ -147,7 +147,7 @@
     <div ng-style="MyStyle"></div>
     <div ng-init="">
     <div ng-repeat='row in rows.colums' class="row">
-      <div ng-repeat='cell in row.cell' class="columns large-1">
+      <div ng-repeat='cell in row.cell' class="columns large-{{cell.cell}}">
         <div ng-style="MyStyle" ng-class="cell.class1" ng-click="selectrow(cell.index,row.row)" >{{$index}}</div>
       </div>
     </div>
