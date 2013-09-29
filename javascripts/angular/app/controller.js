@@ -173,7 +173,7 @@ function MyCtrl($scope) {
             {
                 
                 var active =  $scope.rows.colums[j].cell[i];
-                result += '<div class="rows-'+active.index+'">'+active.cellhtml+'</div>';
+                result += '<div class="rows-'+active.cell+'">'+active.cellhtml+'</div>';
             }
         }
         $scope.reshtml = result;
