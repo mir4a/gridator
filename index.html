@@ -85,6 +85,25 @@
 
     <div class="row">
       <div class="large-12 columns">
+        <a href="#" data-dropdown="drop1" ng-show="select">Has Dropdown</a>
+        <ul id="drop1" class="f-dropdown" data-dropdown-content>
+          <li><a href="#" class="button medium radius alert" ng-click="summElement()">Join</a></li>
+          <div ng-show="editcell">
+            <textarea ui-tinymce ng-model="cellcontent" style="height:250px"></textarea>
+          </div>
+          <li>
+
+          <a class="button success large radius" ng-show="editcell" value="Сохранить" ng-click="gethtmlElement()">Save</a>
+          </li>
+        </ul>
+
+        <div id="edit" class="reveal-modal">
+          <h2>Awesome. I have it.</h2>
+          <p class="lead">Your couch.  It is mine.</p>
+          <p>Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
+          <a class="close-reveal-modal">&#215;</a>
+        </div>
+
 
         <!-- Grid Example -->
         <div class="row">
@@ -93,14 +112,11 @@
             <input type="text" ng-model="row" placeholder="rows"/>
             <input type="text" ng-model="cell" placeholder="cells"/>
 
-            <div ng-show="editcell">
-              <textarea ui-tinymce ng-model="cellcontent" style="height:250px"></textarea>
-            </div>
+
             <input type="hidden" ng-model="activecell">
             <input type="button" ng-show="editcell" value="Сохранить" ng-click="gethtmlElement()"/>
-            <input type="button" ng-show="select" value="Объединить" ng-click="summElement()">
 
-            <input type="button" ng-click="generateHTML()" value="generate HTML">
+            <a href="#generated" class="large success button dropdown round" ng-click="generateHTML()" >generate HTML</a>
             <SPAN ng-show="reshtml">{{reshtml}}</SPAN>
 
           </div>
@@ -115,6 +131,7 @@
 <script type="text/javascript" src="javascripts/foundation/foundation.js"></script>
 <script type="text/javascript" src="javascripts/foundation/foundation.dropdown.js"></script>
 <script type="text/javascript" src="javascripts/foundation/foundation.topbar.js"></script>
+<script type="text/javascript" src="javascripts/foundation/foundation.reveal.js"></script>
 <script type="text/javascript">
   $(document).foundation();
 </script>
