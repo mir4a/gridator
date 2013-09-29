@@ -1,2 +1,2 @@
-var app = angular.module('gridator', []);
+var app = angular.module('gridator', ['ui.tinymce']);
 

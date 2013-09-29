@@ -6,8 +6,8 @@
   <link href="stylesheets/ng-grid.css" media="screen, projection" rel="stylesheet" type="text/css"/>
   <script src="javascripts/angular/angular.min.js"></script>
   <script type="text/javascript" src="javascripts/vendor/jquery.js"></script>
-
-
+  <script type="text/javascript" src="javascripts/vendor/tinymce/tinymce.min.js"></script>
+ <script type="text/javascript" src="javascripts/vendor/tinymce.js"></script>
   <script type="text/javascript" src="javascripts/vendor/custom.modernizr.js"></script>
   <script type="text/javascript" src="javascripts/angular/app/app.js"></script>
   <script type="text/javascript" src="javascripts/angular/app/controller.js"></script>
@@ -166,7 +166,7 @@
         <input id="bg" type="file" />
         <input  type="text" ng-model="row" placeholder="rows"/>
         <input type="text" ng-model="cell" placeholder="cells"/>
-        <textarea ng-show="editcell" ng-model="cellcontent"></textarea>
+        <textarea ng-show="editcell"  ui-tinymce  ng-model="cellcontent" cell="34"></textarea>
         <input type="hidden" ng-model="activecell">
         <input type="button" ng-show="editcell" value="Сохранить" ng-click="gethtmlElement()"/>
         <input type="button" ng-show="select" value="Объединить" ng-click="summElement()">
