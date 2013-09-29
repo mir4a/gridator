@@ -6,7 +6,7 @@
   <link href="stylesheets/ng-grid.css" media="screen, projection" rel="stylesheet" type="text/css"/>
   <script src="javascripts/angular/angular.min.js"></script>
   <script type="text/javascript" src="javascripts/vendor/jquery.js"></script>
-  <script type="text/javascript" src="javascripts/vendor/ng-grid-2.0.7.min.js"></script>
+
 
   <script type="text/javascript" src="javascripts/vendor/custom.modernizr.js"></script>
   <script type="text/javascript" src="javascripts/angular/app/app.js"></script>
@@ -148,7 +148,8 @@
     <div ng-init="">
     <div ng-repeat='row in rows.colums' class="row">
       <div ng-repeat='cell in row.cell' class="columns large-{{cell.cell}}">
-        <div ng-style="MyStyle" ng-class="cell.class1" ng-click="selectrow(cell.index,row.row)" ng-bind-html="cell.cellhtml" ></div>
+        <div ng-style="MyStyle" ng-class="cell.class1" ng-click="selectrow(cell.index,row.row)"  ng-bind-html-unsafe="cell.cellhtml"></div>
+
       </div>
     </div>
    {{MyStyle}}
@@ -166,8 +167,9 @@
         <input  type="text" ng-model="row" placeholder="rows"/>
         <input type="text" ng-model="cell" placeholder="cells"/>
         <textarea ng-show="editcell" ng-model="cellcontent"></textarea>
-        <input type="text" ng-model="activecell">
+        <input type="hidden" ng-model="activecell">
         <input type="button" ng-show="editcell" value="Сохранить" ng-click="gethtmlElement()"/>
+        <input type="button" ng-show="select" value="Объединить" ng-click="summElement()">
         <div class="panel">
           <p>This is a twelve column section in a row. Each of these includes a div.panel element so you can see where
             the columns are - it's not required at all for the grid.</p>

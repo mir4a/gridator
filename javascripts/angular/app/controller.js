@@ -1,4 +1,4 @@
-function MyCtrl ($scope) {
+function MyCtrl($scope) {
 
 	$scope.row = 3;
 	$scope.cell = 12;
@@ -28,13 +28,15 @@ function MyCtrl ($scope) {
     {	
     	
     	 var active = $scope.rows.colums['row'+row].cell['elemnt'+cell];
-    	 $scope.editcell = 1;
-    	 $scope.activecell = row+','+cell;
+
     	 if(active.check == 0)
     	 {
     	 	active.class1 = 'checked';
-    	 	active.check = 1;
+    	 	active.check = 1;		// отмечает что ячейка выделена
     	 	$scope.select = 1;
+    	 	$scope.editcell = 1;  // показываем элементы добавление html
+    	 	$scope.activecell = row+','+cell; // записываем текущую позицию
+    	 	$scope.cellcontent = active.cellhtml; // загружаем текст ячейки в редактируемое поле
     	 }else{
     	 	active.class1 = 'not-checked';
     	 	active.check = 0;
@@ -80,21 +82,47 @@ function MyCtrl ($scope) {
 
     	active.cellhtml = $scope.cellcontent;
     }
-    $scope.resuldata = function()
-    {
 
-    }
+
+
     $scope.colearselect = function()
     {
     	var rows = $scope.row;   //СТРОКИ
  		var cells = $scope.cell; //КОЛОНКИ
     	for(var j=0;j<rows;j++) {
- 		for(var i=0;i<cells;i++)
-		{
-			$scope.rows.colums['row'+j].cell['elemnt'+i].check = 0;
-			$scope.rows.colums['row'+j].cell['elemnt'+i].class1 = 'not-checked';
+	 		for(var i=0;i<cells;i++)
+			{
+				$scope.rows.colums['row'+j].cell['elemnt'+i].check = 0;
+				$scope.rows.colums['row'+j].cell['elemnt'+i].class1 = 'not-checked';
+			}
 		}
-	}
+    }
+    $scope.summElement = function()
+    {
+    	 var = rows = $scope.rows.length;
+
+    	for(var j=0;j<rows;j++) {
+    		var select=0;
+    		var mainelement = null;
+	 		for(var i=0;i<cells;i++)
+	 
+			{
+				var active = $scope.rows.colums['row'+j].cell['elemnt'+i];
+				
+				if (active.check == 1 && select > 0) {
+					select++;
+					$scope.rows.colums['row'+j].cell['elemnt'+mainelement].cell ++;
+					delete  $scope.rows.colums['row'+j].cell['elemnt'+i];
+				};
+				if (active.check == 1 && select ==0) {
+					select++;
+					//active.cell ++;
+					mainelement = i;
+				};
+			}
+		}	
+		$scope.editcell = 0;
     }
 	 
 }
+

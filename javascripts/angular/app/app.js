@@ -1,2 +1,2 @@
-var app = angular.module('gridator', ['ngGrid']);
+var app = angular.module('gridator', []);
 
