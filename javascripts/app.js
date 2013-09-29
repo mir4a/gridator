@@ -33,7 +33,7 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
           // Render thumbnail.
           var imgCheck = $(".gridator");
 //          console.log(e.target.result);
-          imgCheck.css('background', 'url(' + e.target.result + ')');
+          imgCheck.css('background-image', 'url(' + e.target.result + ')');
         };
       })(f);
 

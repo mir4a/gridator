@@ -7442,3 +7442,9 @@ h6 {
   width: 100%;
   padding: 0;
 }
+
+/* line 135, ../sass/_editor.scss */
+.no-drpd {
+  margin: 5px;
+  padding-right: 15px !important;
+}

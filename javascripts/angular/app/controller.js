@@ -183,10 +183,13 @@ function MyCtrl($scope) {
     $scope.generateHTML = function()
     {
       var gridatorBg = $('.gridator').css('background');
+      var gridatorTransform = $('.gridator').css('transform');
+      var gridatorTransformWebkit = $('.gridator').css('-webkit-transform');
         var result = '';
+        result += '<div class="html_wrap" style="background: '+gridatorBg+';transform: '+gridatorTransform+';-webkit-transform: '+gridatorTransformWebkit+'">';
         for (j in $scope.rows.colums)
         {
-          result += '<div class="row" style="background: '+gridatorBg+';">';
+          result += '<div class="row">';
             for(i in $scope.rows.colums[j].cell)
             {
                 
@@ -195,6 +198,7 @@ function MyCtrl($scope) {
             }
           result += '</div>';
         }
+          result += '</div>';
         $scope.reshtml = result;
     }
 
