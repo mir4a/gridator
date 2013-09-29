@@ -148,6 +148,7 @@ function MyCtrl($scope) {
                 if (active.check == 1 && select > 0) {
                     select++;
                     $scope.rows.colums[j].cell[mainelement].cell = $scope.rows.colums[j].cell[mainelement].cell+ active.cell;
+                    $scope.rows.colums[j].cell[mainelement].cellhtml = $scope.rows.colums[j].cell[mainelement].cellhtml+ active.cellhtml;
                     delete  $scope.rows.colums[j].cell[i];
                     console.log($scope.rows.colums[j].cell[i]);
                 };
@@ -160,6 +161,22 @@ function MyCtrl($scope) {
         }
 		$scope.editcell = 0;
         $scope.colearselect ();
+    }
+
+    $scope.generateHTML = function()
+    {
+        var result = '';
+        for (j in $scope.rows.colums)
+        {
+
+            for(i in $scope.rows.colums[j].cell)
+            {
+                
+                var active =  $scope.rows.colums[j].cell[i];
+                result += '<div class="rows-'+active.index+'">'+active.cellhtml+'</div>';
+            }
+        }
+        $scope.reshtml = result;
     }
 	 
 }

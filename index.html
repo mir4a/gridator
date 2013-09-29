@@ -168,10 +168,14 @@
         <input type="text" ng-model="cell" placeholder="cells"/>
         <span ng-show="editcell" >
         <textarea  ui-tinymce  ng-model="cellcontent" style="height:250px"></textarea>
+        
       </span>
         <input type="hidden" ng-model="activecell">
         <input type="button" ng-show="editcell" value="Сохранить" ng-click="gethtmlElement()"/>
         <input type="button" ng-show="select" value="Объединить" ng-click="summElement()">
+
+        <input type="button" ng-click="generateHTML()" value="generate HTML"> 
+        <SPAN ng-show="reshtml">{{reshtml}}</SPAN>
         <div class="panel">
           <p>This is a twelve column section in a row. Each of these includes a div.panel element so you can see where
             the columns are - it's not required at all for the grid.</p>
