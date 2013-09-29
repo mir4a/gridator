@@ -67,11 +67,11 @@
   </div>
 
 
-  <div class="row">
+  <div class="row" >
     <div class="column large-12">
-      <div class="gridator">
-        <div class="gridator_wrap">
-          <div ng-style="MyStyle"></div>
+      <div class="gridator" >
+        <div class="gridator_wrap" style="background-repeat: {{bgRepeat}}; transform: rotate({{angleVal}}deg); -ms-transform: rotate({{angleVal}}deg); -webkit-transform: rotate({{angleVal}}deg)">
+          <!--<div ng-style="MyStyle"></div>-->
           <div ng-init="">
             <div ng-repeat='row in rows.colums' class="row">
               <div ng-repeat='cell in row.cell' class="columns large-{{cell.cell}}">
@@ -141,22 +141,35 @@
                   <div class="content" data-slug="section2" data-section-content>
                     <p>Content of section 2.</p>
 
-                    <div class="row">
+                    <div class="row" >
                       <div class="columns large-4">
-                        <h6>Background</h6>
+                        <h5>Background</h5>
 
                         <input id="bg" type="file"/>
 
-                      </div>
-                      <div class="columns large-4">
-                        <h6>Rows and Cols</h6>
-                        <input type="text" ng-model="row" placeholder="rows"/>
-                        <input type="text" ng-model="cell" placeholder="cells"/>
+                        <h6>Repeat or not repeat - {{ bgRepeat }}</h6>
+                        <label for="repeatX"><input id="repeatX" name="bgRepeat" type="radio" ng-model="bgRepeat" value="repeat-x"/> –
+                          Repeat X</label>
+                        <label for="repeatY"><input id="repeatY" name="bgRepeat" type="radio" ng-model="bgRepeat" value="repeat-y"/> –
+                          Repeat Y</label>
+                        <label for="repeatAll"><input id="repeatAll" name="bgRepeat" type="radio" ng-model="bgRepeat" value="repeat"/>
+                          – Repeat</label>
+                        <label for="repeatNo"><input id="repeatNo" name="bgRepeat" type="radio" ng-model="bgRepeat"
+                                                     value="no-repeat"/> – No Repeat</label>
 
                       </div>
                       <div class="columns large-4">
-                        <h6>Other Stuff</h6>
-                        <p>Blah</p>
+                        <h5>Rows and Cols</h5>
+                        <h6>Rows</h6>
+                        <input type="number" min="3" max="20" ng-model="row" placeholder="rows"/>
+                        <h6>Columns</h6>
+                        <input type="number" ng-model="cell" placeholder="cells" disabled/>
+
+                      </div>
+                      <div class="columns large-4">
+                        <h5>Other Stuff</h5>
+                        <h6>Woooohooo, angle!!!</h6>
+                        <input type="number" min="-360" max="360" ng-model="angleVal" placeholder="angle"/>
                       </div>
                     </div>
 

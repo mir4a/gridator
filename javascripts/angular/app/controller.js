@@ -1,5 +1,22 @@
+//function anglesController($scope) {
+//  $scope.$watch( function () {
+//
+//    console.log($scope.CellSel);
+//  })
+//}
+
+//function bgPosCtrl($scope) {
+//  $scope.$watch(  function () {
+//    $scope.bgRepeat= {
+//      'background-repeat': $scope.bgRepeat
+//    }
+//    console.log($scope.CellSel);
+//  })
+//}
+
 function MyCtrl($scope) {
 
+	$scope.bgRepeat = '';
 	$scope.row = 3;
 	$scope.cell = 12;
 	
@@ -180,6 +197,12 @@ function MyCtrl($scope) {
         }
         $scope.reshtml = result;
     }
+
+  $scope.$watch( function(){
+    $scope.setAngle = {
+
+    }
+  });
 	 
 }
 
