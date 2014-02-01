@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="gridator">
 <head>
   <title>Gridator - Editor</title>
   <meta lang="en-US">
@@ -21,22 +21,21 @@
   <!--TODO: After production deployment need to validate and send application for twitter cards. More info at https://dev.twitter.com/docs/cards/validation/validator -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Gridator – Editor">
-  <meta name="twitter:creator" content="@mc_mart">
+  <meta name="twitter:creator" content="@mir4a_en">
   <meta name="twitter:description" content="Useful modular grid editor. Have a fun!">
   <meta name="twitter:domain" content="http://gridator.pp.ua/">
-  <meta name="twitter:site" content="@mc_mart">
+  <meta name="twitter:site" content="@mir4a_en">
   <meta name="twitter:image:src" content="http://gridator.pp.ua/images/gridator.png">
 
   <link href="stylesheets/app.css" media="screen, projection" rel="stylesheet" type="text/css"/>
-  <link href="stylesheets/ng-grid.css" media="screen, projection" rel="stylesheet" type="text/css"/>
-  <script src="javascripts/angular/angular.min.js"></script>
-  <script type="text/javascript" src="javascripts/vendor/jquery.js"></script>
-  <script type="text/javascript" src="javascripts/vendor/tinymce/tinymce.min.js"></script>
-  <script type="text/javascript" src="javascripts/vendor/tinymce.js"></script>
-  <script type="text/javascript" src="javascripts/vendor/custom.modernizr.js"></script>
-  <script type="text/javascript" src="javascripts/angular/app/app.js"></script>
-  <script type="text/javascript" src="javascripts/angular/app/controller.js"></script>
-  <script type="text/javascript" src="javascripts/angular/app/service.js"></script>
+  <script src="app/javascripts/angular/angular.min.js"></script>
+  <script type="text/javascript" src="app/javascripts/vendor/jquery.js"></script>
+  <script type="text/javascript" src="app/javascripts/vendor/tinymce/tinymce.min.js"></script>
+  <script type="text/javascript" src="app/javascripts/vendor/tinymce.js"></script>
+  <script type="text/javascript" src="app/javascripts/vendor/custom.modernizr.js"></script>
+  <script type="text/javascript" src="app/javascripts/angular/app/app.js"></script>
+  <script type="text/javascript" src="app/javascripts/angular/app/controller.js"></script>
+  <script type="text/javascript" src="app/javascripts/angular/app/service.js"></script>
 
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -53,18 +52,19 @@
     .checked {
       background-color: #FF0000;
     }</style>
+  <base href="/"/>
 </head>
-<body ng-app="gridator">
-<div ng-controller="MyCtrl">
+<body>
+
   <header class="fixed">
     <nav class="top-bar" data-options="is_hover:false">
       <ul class="title-area">
         <!-- Title Area -->
         <li class="name">
-          <h1><a href="#">Gridator</a></h1>
+          <h1><a href="gridator">Gridator</a></h1>
         </li>
         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        <li class="toggle-topbar menu-icon"><a onclick="return false" class="toggle_menu"><span>Menu</span></a></li>
       </ul>
 
       <section class="top-bar-section">
@@ -73,14 +73,14 @@
         <!-- Right Nav Section -->
         <ul class="right">
           <li class="divider hide-for-small"></li>
-          <li class="has-dropdown"><a href="#">What is this?</a>
+          <li class="has-dropdown"><a onclick="return false">What is this?</a>
 
             <ul class="dropdown">
-              <li><a href="#" data-reveal-id="aboutGridator">About the Gridator</a></li>
-              <li><a href="#" data-reveal-id="gridatorAuthors">Authors</a></li>
-              <li><a href="#" data-reveal-id="gridatorRepo">Source</a></li>
+              <li><a href="about" >About the Gridator</a></li>
+              <li><a href="authors" >Authors</a></li>
+              <li><a href="source" >Source</a></li>
               <li class="divider"></li>
-              <li><a href="#" data-reveal-id="gridatorHelper">Help</a></li>
+              <li><a href="help" >Help</a></li>
             </ul>
           </li>
           <li class="divider"></li>
@@ -93,199 +93,20 @@
       </section>
     </nav>
   </header>
-  <div class="row">
-    <div class="twelve columns">
-      <h2>I need your grids, rows and colls.</h2>
 
-      <hr/>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="column large-12">
-      <div class="gridator"
-           style="transform: rotate({{angleVal}}deg); -ms-transform: rotate({{angleVal}}deg); -webkit-transform: rotate({{angleVal}}deg)">
-        <div class="gridator_wrap" style="background-repeat: {{bgRepeat}}">
-          <!--<div ng-style="MyStyle"></div>-->
-          <div ng-init="">
-            <div ng-repeat='row in rows.colums' class="row">
-              <div ng-repeat='cell in row.cell' class="columns large-{{cell.cell}}">
-                <div ng-style="MyStyle" ng-class="cell.class1" ng-click="selectrow(cell.index,row.row)"
-                     ng-bind-html-unsafe="cell.cellhtml" class="cell_bg"></div>
-
-              </div>
-            </div>
-            {{MyStyle}}
-          </div>
-        </div>
-      </div>
-
-      <div class="edit_panel">
-        <a href="#" data-dropdown="drop1" ng-show="select"
-           class="has-dropdown button success small round">Editor</a>
-
-        <div id="drop1" class="f-dropdown medium" data-dropdown-content>
-          <div class="button_wrap">
-            <a href="#" class="button small radius alert" ng-click="summElement()">Join Columns</a>
-          </div>
-          <div class="divider"></div>
-          <div ng-show="editcell">
-            <textarea ui-tinymce ng-model="cellcontent" style="height:250px"></textarea>
-          </div>
-          <input type="hidden" ng-model="activecell">
-
-          <div class="button_wrap">
-            <a class="button right success small radius" ng-show="editcell" value="Сохранить"
-               ng-click="gethtmlElement()">Save</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="large-12 columns">
-
-          <div id="result" class="reveal-modal expand">
-            <div class="row">
-              <div class="column large-12" ng-show="reshtml" ng-bind-html-unsafe="reshtml"></div>
-            </div>
-            <a class="close-reveal-modal">&#215;</a>
-          </div>
-
-
-          <!-- Grid Example -->
-          <div class="row">
-            <div class="large-12 columns">
-
-              <div class="section-container auto" data-section data-options="deep_linking: true">
-                <section class="active">
-                  <p class="title" data-section-title><a href="#section1">Generate HTML</a></p>
-
-                  <div class="content" data-slug="section1" data-section-content>
-                    <p>Here you go, html
-                      <a href="#generated" data-reveal-id="result" class="large right success button dropdown round"
-                         ng-click="generateHTML()">generate
-                        HTML</a>
-                    </p>
-
-                    <div class="clear"></div>
-                  </div>
-                </section>
-                <section>
-                  <p class="title" data-section-title><a href="#section2">Grid Options</a></p>
-
-                  <div class="content" data-slug="section2" data-section-content>
-                    <p>Suppa additional settings</p>
-
-                    <div class="row">
-                      <div class="columns large-4">
-                        <h5>Background</h5>
-
-                        <input id="bg" type="file"/>
-
-                        <h6>Repeat or not repeat - {{ bgRepeat }}</h6>
-                        <label for="repeatX"><input id="repeatX" name="bgRepeat" type="radio" ng-model="bgRepeat"
-                                                    value="repeat-x"/> –
-                          Repeat X</label>
-                        <label for="repeatY"><input id="repeatY" name="bgRepeat" type="radio" ng-model="bgRepeat"
-                                                    value="repeat-y"/> –
-                          Repeat Y</label>
-                        <label for="repeatAll"><input id="repeatAll" name="bgRepeat" type="radio" ng-model="bgRepeat"
-                                                      value="repeat"/>
-                          – Repeat</label>
-                        <label for="repeatNo"><input id="repeatNo" name="bgRepeat" type="radio" ng-model="bgRepeat"
-                                                     value="no-repeat"/> – No Repeat</label>
-
-                      </div>
-                      <div class="columns large-4">
-                        <h5>Rows and Cols</h5>
-                        <h6>Rows</h6>
-                        <input type="number" min="3" max="20" ng-model="row" placeholder="rows"/>
-                        <h6>Columns</h6>
-                        <input type="number" ng-model="cell" placeholder="cells" disabled/>
-
-                      </div>
-                      <div class="columns large-4">
-                        <h5>Other Stuff</h5>
-                        <h6>Woooohooo, angle!!!</h6>
-                        <input type="number" min="-360" max="360" ng-model="angleVal" placeholder="angle"/>
-                      </div>
-                    </div>
-
-                  </div>
-                </section>
-              </div>
-
-
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </div>
+<div class="sticky_wrap">
+  <div ng-view></div>
+  <div class="foo_push"></div>
 </div>
 
-<div id="aboutGridator" class="reveal-modal">
+<footer class="footer">
   <div class="row">
-    <div class="column large-12">
-      <h2>What about about?</h2>
-
-      <p>It's all about modular grids and implementation them into web as html/css code. That's all folks!</p>
+    <div class="columns large-4">
+      <small>&copy; <strong>Gridator</strong>, 2013. v0.0.1</small>
     </div>
+    <div class="columns large-8"></div>
   </div>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
-
-<div id="gridatorAuthors" class="reveal-modal">
-  <div class="row">
-    <div class="column large-12">
-      <h2>Who do that?</h2>
-
-      <div class="row">
-        <div class="columns large-6">
-          <div class="columns large-4">
-            <a class="th radius round" href="https://twitter.com/coderxlsn" target="_blank">
-              <img src="images/coderxlsn.jpg">
-            </a>
-          </div>
-          <div class="columns large-8">
-            <h1>Artur Rostriga</h1>
-            <h4>The AngularJS hero</h4>
-
-            <p>He was coded all the application logic.</p>
-            <ul>
-              <li>Twitter <a href="https://twitter.com/coderxlsn">@coderxlsn</a></li>
-              <li>Github <a href="https://github.com/coderxlsn">@coderxlsn</a></li>
-              <li>Facebook <a href="https://www.facebook.com/coderxlsn">coderxlsn</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="columns large-6">
-          <div class="columns large-4">
-            <a class="th radius round" href="https://twitter.com/mc_mart" target="_blank">
-              <img src="images/mir4a.jpg">
-            </a>
-          </div>
-          <div class="columns large-8">
-            <h1>Miroslav Martynov</h1>
-            <h4>The Html5 and css3 rocky</h4>
-
-            <p>He is generate idea of gridator. Also coded and styled a bunch of markup.</p>
-            <ul>
-              <li>Twitter <a href="https://twitter.com/mc_mart">@mc_mart</a></li>
-              <li>Github <a href="https://github.com/mir4a">@mir4a</a></li>
-              <li>Facebook <a href="https://www.facebook.com/miroslav.martynov">miroslav.martynov</a></li>
-              <li>Skype <a href="https://www.facebook.com/miroslav.martynov">miroslav.martynov</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
+</footer>
 
 <div id="like" class="reveal-modal small">
   <h4>Like us, Share us, Gridate us! (or we do)</h4>
@@ -310,15 +131,15 @@
   </div>
 </div>
 
-<script type="text/javascript" src="javascripts/foundation/foundation.js"></script>
-<script type="text/javascript" src="javascripts/foundation/foundation.dropdown.js"></script>
-<script type="text/javascript" src="javascripts/foundation/foundation.topbar.js"></script>
-<script type="text/javascript" src="javascripts/foundation/foundation.reveal.js"></script>
-<script type="text/javascript" src="javascripts/foundation/foundation.section.js"></script>
+<script type="text/javascript" src="app/javascripts/foundation/foundation.js"></script>
+<script type="text/javascript" src="app/javascripts/foundation/foundation.dropdown.js"></script>
+<script type="text/javascript" src="app/javascripts/foundation/foundation.topbar.js"></script>
+<script type="text/javascript" src="app/javascripts/foundation/foundation.reveal.js"></script>
+<script type="text/javascript" src="app/javascripts/foundation/foundation.section.js"></script>
 <script type="text/javascript">
   $(document).foundation();
 </script>
-<script type="text/javascript" src="javascripts/app.js"></script>
+
 
 </body>
 </html>

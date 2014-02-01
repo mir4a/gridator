@@ -1,0 +1,54 @@
+<div class="row" ng-controller="GridatorCtrl">
+
+  <div class="column large-12">
+    <div class="gridator">
+      <div class="gridator_wrap">
+        <div ng-init="">
+          <div ng-repeat='row in gridator.rows' class="row">
+              <div class="columns large-{{ cell.size }}" ng-repeat="cell in row">
+                  {{ $index + 1 }}
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="row">
+          <div class="large-12 columns">
+            <section>
+              <div class="row">
+                <div class="columns large-4">
+                  <h5>Background</h5>
+
+                  <i>Will be available soon…</i>
+
+                </div>
+                <div class="columns large-4">
+                  <h5>Rows and Cols</h5>
+                  <h6>Rows</h6>
+                  <!--<input type="number" min="3" max="20" ng-model="row" placeholder="rows"/>-->
+                  <h6>Columns</h6>
+                  <!--<input type="number" ng-model="cell" placeholder="cells" disabled/>-->
+
+                </div>
+                <div class="columns large-4">
+                  <h5>Other Stuff</h5>
+                  <h6>Woooohooo, angle!!!</h6>
+                  <!--<input type="number" min="-360" max="360" ng-model="angleVal" placeholder="angle"/>-->
+                  <hr>
+                  <button class="large right success button dropdown round" >generate
+                    HTML
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

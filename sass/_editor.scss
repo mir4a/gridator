@@ -1,10 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+@import "compass/layout/sticky-footer";
 $gridator_height: 300px;
 $black: #000;
 $white: #fff;
 $red: #d93600;
 $turquoise: turquoise;
 $blue: #2795b6;
+$emerald: #008080;
+
+$green_code: rgb(173,202,116);
+$dracula_bg: rgb(57,57,57);
 
 $large_dropdown_width: 400px;
 
@@ -15,6 +20,10 @@ $lato: "Lato", sans-serif;
 body {
   font: 100 1em/130% $lato;
   background: darken($white,5%);
+}
+
+small {
+  font-size: 75%;
 }
 
 p {
@@ -70,8 +79,14 @@ h6 {
   position: relative;
 }
 
+$editpanel_width: 66px;
+$editpanel_height: 30px;
 .edit_panel {
-  position: fixed;
+  width: $editpanel_width;
+  height: $editpanel_height;
+  margin-top: -(ceil($editpanel_height/2));
+  margin-left: -(ceil($editpanel_width/2));
+  position: absolute;
   top: 100px;
   left: 40px;
   z-index: 999;
@@ -99,6 +114,10 @@ h6 {
 }
 
 .gridator_wrap {
+  p,h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding-bottom: 10px;
+  }
   .row {
     margin-bottom: $vertical_rythm;
     @include box-shadow(inset 0 -1px 0 transparentize($turquoise, 0.33),inset 0 1px 0 transparentize($turquoise, 0.33));
@@ -135,4 +154,38 @@ h6 {
 .no-drpd {
   margin: 5px;
   padding-right: 15px !important;
+}
+
+$pre_max_height: 300px;
+.result_code {
+  color: $emerald;
+  font-size: 85%;
+  padding: 15px;
+  height: $pre_max_height;
+  overflow-x: auto;
+  overflow-y: scroll;
+  resize: none;
+  background: $white;
+  border-radius: 5px;
+  @include box-shadow(inset 0 1px 4px transparentize($dracula_bg,0.3));
+}
+
+@include sticky-footer(30px, ".sticky_wrap", ".foo_push", ".footer");
+
+.toggle_menu {
+    text-indent: -48px;
+    width: 34px;
+    height: 34px;
+    line-height: 33px;
+    padding: 0;
+    color: white;
+  span {
+    position: absolute;
+    right: 0;
+    display: block;
+    width: 16px;
+    height: 0;
+    -webkit-box-shadow: 0 10px 0 1px white, 0 16px 0 1px white, 0 22px 0 1px white;
+    box-shadow: 0 10px 0 1px white, 0 16px 0 1px white, 0 22px 0 1px white;
+  }
 }
