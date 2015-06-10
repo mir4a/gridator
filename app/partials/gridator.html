@@ -1,0 +1,83 @@
+<div class="row" ng-controller="MyCtrl">
+  <div class="edit_panel" ng-style="EditorPosition">
+    <button href="#" data-dropdown="drop1" ng-show="select"
+       class="has-dropdown button success small round">Editor</button>
+
+    <div id="drop1" class="f-dropdown medium" data-dropdown-content>
+      <div class="button_wrap">
+        <button class="button small radius alert" ng-click="summElement()">Join Columns</button>
+        <button class="button right success small radius" ng-show="editcell" ng-click="gethtmlElement()">Save</button>
+      </div>
+      <div class="divider"></div>
+      <div ng-show="editcell">
+        <textarea ui-tinymce ng-model="cellcontent" style="height:250px"></textarea>
+      </div>
+      <input type="hidden" ng-model="activecell">
+
+    </div>
+  </div>
+
+  <div class="column large-12">
+    <div class="gridator"
+         style="transform: rotate({{angleVal}}deg); -ms-transform: rotate({{angleVal}}deg); -webkit-transform: rotate({{angleVal}}deg)">
+      <div class="gridator_wrap" style="background-repeat: {{bgRepeat}}">
+        <!--<div ng-style="MyStyle"></div>-->
+        <div ng-init="">
+          <div ng-repeat='row in rows.colums' class="row">
+            <div ng-repeat="cell in row.cell" class="columns large-{{cell.cell}}" data-number="{{cell.index}}">
+              <div ng-class="cell.class1" ng-click="selectrow(cell.index,row.row,$event)"
+                   ng-bind-html-unsafe="cell.cellhtml" class="cell_bg"></div>
+
+            </div>
+          </div>
+          {{MyStyle}}
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="row">
+          <div class="large-12 columns">
+            <section>
+              <div class="row">
+                <div class="columns large-4">
+                  <h5>Background</h5>
+
+                  <i>Will be available soon…</i>
+
+                </div>
+                <div class="columns large-4">
+                  <h5>Rows and Cols</h5>
+                  <h6>Rows</h6>
+                  <input type="number" min="3" max="20" ng-model="row" placeholder="rows"/>
+                  <h6>Columns</h6>
+                  <input type="number" ng-model="cell" placeholder="cells" disabled/>
+
+                </div>
+                <div class="columns large-4">
+                  <h5>Other Stuff</h5>
+                  <h6>Woooohooo, angle!!!</h6>
+                  <input type="number" min="-360" max="360" ng-model="angleVal" placeholder="angle"/>
+                  <hr>
+                  <button class="large right success button dropdown round" ng-click="generateHTML($event)">generate
+                    HTML
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="result" class="">
+    <div class="row">
+      <div class="column large-12" ng-show="reshtml" >
+        <textarea class="result_code" ng-bind="reshtml" ng-click="selectHtml($event)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
